@@ -49,7 +49,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -59,40 +59,46 @@ function App() {
 
 function Header() {
   return (
-    <div>
+    <header className="header">
       <h1>Fast react Pizza Co.</h1>
-    </div>
+    </header>
   );
 }
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
-    </div>
+      <Pizza />
+      <Pizza />
+    </main>
   );
 }
 function Footer() {
-  const hour = new Date().getHours();
-  console.log(hour);
-  const openHour = 12;
-  const closeHour = 22;
-  const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
+  //const hour = new Date().getHours();
+  //console.log(hour);
+  //const openHour = 12;
+  //const closeHour = 22;
+  //const isOpen = hour >= openHour && hour <= closeHour;
+  //console.log(isOpen);
 
   //if (hour >= openHour && hour <= closeHour) alert("We'r currently open!");
   //else alert("We'r Closed");
 
-  return React.createElement("footer", null, "We'r currently open!");
+  return (
+    <footer className="footer">
+      React.createElement("footer", null, "We'r currently open!");
+    </footer>
+  );
   // Does not Work!!!
-  //return <footer>{new Date.toLocalTimeString()}We'r currently open</footer>;
+  //return ({new Date.toLocalTimeString()}We'r currently open);
 }
 
 function Pizza() {
   return (
     <div>
       <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-      <h2>Pizza Spinaci</h2>
+      <h3>Pizza Spinaci</h3>
       <p>"Tomato, mozarella, spinach, and ricotta cheese"</p>
     </div>
   );
