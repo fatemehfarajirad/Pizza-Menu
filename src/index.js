@@ -104,19 +104,20 @@ function Pizza(props) {
 }
 
 function Footer() {
-  //const hour = new Date().getHours();
-  //console.log(hour);
-  //const openHour = 12;
-  //const closeHour = 22;
-  //const isOpen = hour >= openHour && hour <= closeHour;
-  //console.log(isOpen);
+  const hour = new Date().getHours();
+  console.log(hour);
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
 
   //if (hour >= openHour && hour <= closeHour) alert("We'r currently open!");
   //else alert("We'r Closed");
 
   return (
     <footer className="footer">
-      React.createElement("footer", null, "We'r currently open!");
+      {isOpen && <p>We'r currently open! until {closeHour}</p>}
+      {/*React.createElement("footer", null, "We'r currently open!"); */}
     </footer>
   );
   // Does not Work!!!
