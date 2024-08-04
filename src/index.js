@@ -116,7 +116,12 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {isOpen && <p>We'r currently open! until {closeHour}</p>}
+      {isOpen && (
+        <div className="order">
+          <p>We'r currently open! until {closeHour}</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
       {/*React.createElement("footer", null, "We'r currently open!"); */}
     </footer>
   );
