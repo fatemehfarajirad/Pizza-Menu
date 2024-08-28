@@ -96,6 +96,8 @@ function Menu() {
 }
 
 function Pizza(props) {
+  if (props.pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -118,10 +120,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We'r currently open! until {closeHour}:00 come to visit us</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
         <p>
           We are happy to wellcome you between {openHour}:00 and {closeHour}:00.{" "}
@@ -131,6 +130,15 @@ function Footer() {
   );
   // Does not Work!!!
   //return ({new Date.toLocalTimeString()}We'r currently open);
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>We'r currently open! until {props.closeHour}:00 come to visit us</p>
+      <button className="btn">Order</button>
+    </div>
+  );
 }
 
 function Togglebutton() {
