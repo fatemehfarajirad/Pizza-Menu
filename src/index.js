@@ -95,16 +95,16 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
-  if (props.pizzaObj.soldOut) return null;
+function Pizza({ pizzaObj }) {
+  if (pizzaObj.soldOut) return null;
 
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
-      <h3>{props.pizzaObj.photoName}</h3>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <h3>{pizzaObj.photoName}</h3>
       <div>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 3}</span>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price + 3}</span>
       </div>
     </li>
   );
@@ -120,7 +120,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <Order closeHour={closeHour} />
+        <Order closeHour={closeHour} openHour={openHour} />
       ) : (
         <p>
           We are happy to wellcome you between {openHour}:00 and {closeHour}:00.{" "}
@@ -132,10 +132,13 @@ function Footer() {
   //return ({new Date.toLocalTimeString()}We'r currently open);
 }
 
-function Order(props) {
+function Order({ closeHour, openHour }) {
   return (
     <div className="order">
-      <p>We'r currently open! until {props.closeHour}:00 come to visit us</p>
+      <p>
+        We'r currently open from {openHour}:00 until {closeHour}:00 come to
+        visit us
+      </p>
       <button className="btn">Order</button>
     </div>
   );
